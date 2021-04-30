@@ -1,0 +1,295 @@
+.error {
+    color: black;
+}
+
+.form-row-title {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+#test {
+    border: 1px solid red;
+    margin-top: 0px;
+    vertical-align: top;;
+}
+
+#container {
+    width: 850px;
+    margin: 30px;
+}
+
+#weather_container {
+    width: 600px;
+    margin: 0px;
+}
+
+#map_container {
+    width: 600px;
+    margin: 0px;
+}
+
+#books-container {
+    width: 850px;
+    margin: 10px 0px 0px 30px;
+}
+
+.form-div {
+    width: 750px;
+}
+
+#login_div {
+    width: 750px;
+}
+
+#registration_div {
+    width: 750px;
+}
+
+.book-update-label {
+    width: 150px;
+}
+
+.welcome-header {
+    color: #3f7dc4;
+    font-weight: bold;
+}
+.form-button-row {
+    width: 90px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.form-button-row-wall {
+    width: 60%;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.top_row {
+    width: 800px;
+}
+
+.logout {
+    text-align: right;
+    font-weight: bold;
+}
+
+.textarea-msg {
+    width: 62%;
+    height: 80px;
+}
+
+.textarea-comments-msg {
+    width: 61%;
+    height: 70px;
+}
+
+.msgs {
+    border-radius: 20px solid grey;
+}
+
+.msg-header {
+    font-weight: bold;
+}
+
+.msg-body {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.msg-col {
+    width: 63%;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.msg-col-comments {
+    width: 57%;
+    padding: 5px;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.align-left-comments {
+    margin-left: 60px;
+    margin-top: 5px;
+}
+
+
+.right-spacer {
+    width: 100px;
+}
+
+.align-left {
+    margin-left: 10px;
+}
+
+.align-right {
+    text-align: right;
+}
+.msg-head {
+    margin-top: 5px;
+}
+
+.comment {
+    margin-left: 20px;
+}
+
+.delete-message-btn {
+    text-align: right;
+}
+
+.delete-comment-btn {
+    text-align: right;
+}
+
+.no-border {
+    border: 0;
+    box-shadow: none; 
+}
+
+.fave-book {
+    color: red;
+}
+
+.show-book-desc {
+    margin: 5px;
+}
+
+.small-vertical-row {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.giphy_img {
+    data-state: animate;
+    height: 300px;
+    width: 350px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#show_giphy {
+    margin-top: 20px;
+}
+
+.giphy-div {
+    border-radius: 20px;
+}
+
+#title {
+    width: 270px;
+}
+
+#desc {
+    width: 270px;
+}
+
+.height-spacer {
+    height: 50px;
+}
+
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.current-video-div {
+    border-radius: 15px solid blue;
+    border: 1px solid blue;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 1em;
+    font-size: 2vw;
+    color: #FFD600;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+.icon-red {
+    color: red;
+}
+
+.tooltip-inner {
+    background-color: red !important;
+    /*!important is not necessary if you place custom.css at the end of your css calls. For the purpose of this demo, it seems to be required in SO snippet*/
+    color: #fff;
+}
+
+.tooltip.top .tooltip-arrow {
+border-top-color: red;
+}
+
+.tooltip.right .tooltip-arrow {
+border-right-color: red;
+}
+
+.tooltip.bottom .tooltip-arrow {
+border-bottom-color: red;
+}
+
+.tooltip.left .tooltip-arrow {
+border-left-color: red;
+}

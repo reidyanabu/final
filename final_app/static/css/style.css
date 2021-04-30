@@ -1,0 +1,152 @@
+.error {
+    color: black;
+}
+
+.form-row-title {
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+#form-row-title {
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+#container {
+    width: 850px;
+    margin: 30px;
+}
+
+.form-div {
+    width: 600px;
+}
+
+#login_div {
+    width: 600px;
+}
+
+#registration_div {
+    width: 600px;
+}
+
+.welcome-header {
+    color: #3f7dc4;
+    font-weight: bold;
+}
+.form-button-row {
+    width: 90px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.form-button-row-wall {
+    width: 60%;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.top_row {
+    width: 800px;
+}
+
+.logout {
+    text-align: right;
+    font-weight: bold;
+}
+
+.textarea-msg {
+    width: 62%;
+    height: 80px;
+}
+
+.textarea-comments-msg {
+    width: 61%;
+    height: 70px;
+}
+
+.msgs {
+    border-radius: 20px solid grey;
+}
+
+.msg-header {
+    font-weight: bold;
+}
+
+.msg-body {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.msg-col {
+    width: 63%;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.msg-col-comments {
+    width: 57%;
+    padding: 5px;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.align-left-comments {
+    margin-left: 60px;
+    margin-top: 5px;
+}
+
+
+.right-spacer {
+    width: 100px;
+}
+
+.align-left {
+    margin-left: 10px;
+}
+
+.align-right {
+    text-align: right;
+}
+.msg-head {
+    margin-top: 5px;
+}
+
+.comment {
+    margin-left: 20px;
+}
+
+.delete-message-btn {
+    text-align: right;
+}
+
+.delete-comment-btn {
+    text-align: right;
+}
+
+.no-border {
+    border: 0;
+    box-shadow: none; 
+}
+
+.fave-book {
+    color: red;
+}
+
+.show-book-desc {
+    margin: 5px;
+}
+
+.small-vertical-row {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.giphy_img {
+    data-state: animate;
+    height: 50px;
+    width: 100px;
+}
+
+#show_giphy {
+    margin: 20px;
+}

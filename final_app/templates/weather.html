@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="us">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Weather</title>
+    <link rel="icon" href="/static/images/mk.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/weather_style.css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.css">
+    <script>
+        let map;
+        
+        const lat_def = 37.8912199;
+        const lng_def = -122.5587236;
+        const zoom_def = 10;
+
+        var p_def = 1; // is my location by default
+        
+        // weather api
+        const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/onecall?';
+        const WEATHER_API_KEY = '&appid=9ea774c21ce2ce8e78196c891db065f9';
+        // google maps api
+        const GOOGLE_API_KEY = 'AIzaSyC3i9nCRcpafNUGCq2uHU9HZRwGjkDblYw';
+        const GOOGLE_MAPS_URL = "https://maps.googleapis.com/maps/api/js?" + GOOGLE_API_KEY + "&callback=initMap&libraries=&v=weekly";
+        // geocode api for reverse lookup
+        const GOOGLE_GEOCODING_URL = "https://maps.googleapis.com/maps/api/geocode/json?";
+
+        // sr
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+        var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+        var recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = 'en-US';
+    
+        function speak(textToSay, delay) {
+            var speech = new SpeechSynthesisUtterance();
+            speech.text = textToSay;
+            //setTimeout(() => { speechSynthesis.speak(speech);  }, delay);
+            speechSynthesis.speak(speech); 
+        }
+
+        function initMap() {
+
+            navigator.geolocation.getCurrentPosition(showPosition,showDefaultPosition);
+        }
+
+        function showDefaultPosition(position) {
+            p_def = 1;
+            let myLatLng = { lat: lat_def, lng: lng_def };
+            //alert('Map will show where Reid is located :)');
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: myLatLng,
+                zoom: zoom_def
+            });
+            let marker = new google.maps.Marker({
+                map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: myLatLng
+            });
+            const info_window = new google.maps.InfoWindow({
+                content: '<h2>Where Reid is</h2>'
+            });
+            info_window.open(map, marker);
+            // append message 'where I am'
+            getCityFromCoordinates(lat_def,lng_def);
+
+        }
+
+        function showPosition(position) {
+            p_def = 0;
+            let myLatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
+            //alert('Map where you are visiting from based on your browser :)');
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: myLatLng,
+                zoom: zoom_def,
+            });
+            let marker = new google.maps.Marker({
+                map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: myLatLng
+            });
+            const info_window = new google.maps.InfoWindow({
+                content: '<h2>Where you are</h2>'
+            });
+            info_window.open(map, marker);
+            // append message 'where you are'
+            getCityFromCoordinates(position.coords.latitude,position.coords.longitude);
+        }
+
+        function fahrenheitFromKel(kelvin) {
+            return Math.round(((9/5)*(parseInt(kelvin)-273))+32) + '&#8457;';
+        }
+
+
+        function getCityFromCoordinates(lat_in,lng_in) {
+            
+            let geo_url = GOOGLE_GEOCODING_URL + "latlng=" + lat_in + "," + lng_in + "&key=" + GOOGLE_API_KEY;
+            
+            var place = '';
+
+            $.get(geo_url, function(res) {
+                var results = res.results[0];
+
+                place = results.formatted_address;
+
+                speak(place, 0);
+
+                // clear the info
+                $('#location_p').children().remove();
+
+                // generate location
+                $('<h4><b>'+ place + '</b></h4>').appendTo('#location_p');
+
+                // get weather
+                populateWeather(lat_in,lng_in);
+
+                return place;
+            });
+        }
+
+        function populateWeather(lat_in,lng_in) {
+            let weather_url = WEATHER_API_URL + 'lat=' + lat_in + '&lon=' + lng_in + WEATHER_API_KEY;
+            
+            // get current conditions
+            $('#tabs-1').children().remove(); // clear previous
+            $.get(weather_url, function(res) {
+                // populate current conditions tab
+                $('<p><h2>' + res.current.weather[0].main.toUpperCase() + ' - ' + fahrenheitFromKel(res.current.temp) + '</h2></p>' +
+                    '<p>High today: ' + fahrenheitFromKel(res.daily[0].temp.max) + '</p>' +
+                    '<p>Low today: ' + fahrenheitFromKel(res.daily[0].temp.min) + '</p>' 
+                ).appendTo('#tabs-1');
+                var current_temp = fahrenheitFromKel(res.current.temp);
+                current_temp = current_temp.replace('&#8457;','');
+                
+                speak("Current weather conditions is: " + res.current.weather[0].main);
+                speak("And " + current_temp + " degrees fahrenheit");
+            }); 
+
+            // get hourly conditions
+            $('#tabs-2').children().remove(); // clear previous
+            $.get(weather_url, function(res) {
+                
+                var date = null;
+                var hours = null;
+                var temp = null;
+                var conditions = null;
+                var hourly = '';
+                for (var c=0; c<=12; c++) {
+                    date = new Date(res.hourly[c].dt * 1000);
+                    hour = format_hours(date.getUTCHours());
+                    temp = fahrenheitFromKel(res.hourly[c].temp);
+                    conditions = res.hourly[c].weather[0].main;
+                    hourly  += '<p><b>' + hour + '</b>: ' + temp + ' ' + conditions + '</p>';
+                }
+
+                $(hourly).appendTo('#tabs-2');
+            });
+
+            // get daily conditions
+            $('#tabs-3').children().remove(); // clear previous
+            $.get(weather_url, function(res) {
+                
+                var date = null;
+                var day_of_week = null;
+                var formatted_date = null;
+                var temp = null;
+                var conditions = null;
+                var daily = '';
+                for (var c=0; c<7; c++) {
+                    date = new Date(res.daily[c].dt * 1000);
+                    day_of_week = format_day(date);
+                    formatted_date = get_formatted_date(date);
+                    temp = fahrenheitFromKel(res.daily[c].temp.day);
+                    conditions = res.daily[c].weather[0].main;
+                    daily  += '<p><b>' + day_of_week + ', ' + formatted_date + '</b>: ' + temp + ' ' + conditions + '</p>';
+                }
+                $(daily).appendTo('#tabs-3');
+            });
+
+            function get_formatted_date(date) {
+                var options = { month: 'long', day: 'numeric'};
+                var formatted_day = new Intl.DateTimeFormat('en-US', options).format(date);
+                return formatted_day;
+            }
+
+            function format_day(date) {
+                var options = { weekday: 'long'};
+                var formatted_day = new Intl.DateTimeFormat('en-US', options).format(date);
+                return formatted_day;
+            }
+
+            function format_hours(hours) {
+                var am_pm = hours>=12?' pm':' am';
+                
+                if (hours>=12) {
+                    hours -= 12;
+                }
+                if (hours == 0) {
+                    hours = 12;
+                }
+
+                return hours + am_pm;
+            }
+        }
+
+        $( function() {
+            $( "#tabs" ).tabs();
+        });
+
+        $(document).ready(
+            function() {
+                $('#switch_map_loc_button').click(
+                    // switches location to either users or mine
+                    function() {
+                        if (p_def==0) {
+                            // switch to default location
+                            showDefaultPosition();
+                        } else {
+                            // switch to users location
+                            initMap();
+                        }
+                    }
+                );
+
+                $('#find_address').keypress( 
+                    function(event) {
+
+                        var keycode = (event.keycode?event.keycode:event.which);
+
+                        if (keycode == 13) {
+                            var find_address = document.getElementById('find_address').value;
+                            var find_address_in = find_address.replace(/ /g, '+');
+                            
+                            $.ajax({
+                                url: GOOGLE_GEOCODING_URL,
+                                method: 'GET',
+                                data: {
+                                    'key' : GOOGLE_API_KEY,
+                                    'address': find_address_in,
+                                },
+                                dataType: 'json',
+                                success: function (r) {
+                                    var lat = r.results[0].geometry.location.lat;
+                                    var lng = r.results[0].geometry.location.lng;
+
+                                    let myLatLng = { lat: lat, lng: lng };
+                                    //alert('Map will show where Reid is located :)');
+                                    var map = new google.maps.Map(document.getElementById("map"), {
+                                        center: myLatLng,
+                                        zoom: zoom_def
+                                    });
+                                    let marker = new google.maps.Marker({
+                                        map,
+                                        draggable: true,
+                                        animation: google.maps.Animation.DROP,
+                                        position: myLatLng
+                                    });
+
+                                    // change the weather for location selected
+                                    var to_display = getCityFromCoordinates(lat,lng);
+
+                                    var info_window = new google.maps.InfoWindow({
+                                        content: '<h2>' + find_address + '</h2>'
+                                    });
+                                    info_window.open(map, marker);
+                                } // end successful ajax call
+                            });
+
+                        }
+                    }
+                ); // end click find_address
+
+            }
+        );
+    </script>
+    <title>Weather</title>
+</head>
+<body>
+    <div id='container'>
+
+        <!-- Header -->
+        <div class="row">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Welcome {{ request.session.user_first_name }}!</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/youtube">Youtube</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/weather">Weather</a>
+                </li>
+                </ul>
+            </div>
+            <a class="btn btn-primary" href="/logout">Log Out</a>
+            </nav>
+        </div>
+
+        <div id="map_container row">
+            <div id="map" style="width: 950px; height: 350px"></div>
+            <div id="location_title">
+                <p id='location_p'></p><input type="text" id="find_address" name="find_address" class="border border-success"><!--
+                <button id="switch_map_loc_button" class="ui-button">Switch Location</button>-->
+            </div>
+            <div id="tabs">
+                <ul role='tablist'>
+                    <li><a href="#tabs-1">Current Conditions</a></li>
+                    <li><a href="#tabs-2">Hourly</a></li>
+                    <li><a href="#tabs-3">7-Day</a></li>
+                </ul>
+                <div id="tabs-1"></div>
+                <div id="tabs-2"></div>
+                <div id="tabs-3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- load the map -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3i9nCRcpafNUGCq2uHU9HZRwGjkDblYw&callback=initMap&libraries=&v=weekly">
+    </script>
+</body>
+</html>

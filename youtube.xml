@@ -1,0 +1,692 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "ztuDXf4R3pEreGKwoSxw5ljiZ6A",
+  "nextPageToken": "CBQQAA",
+  "regionCode": "US",
+  "pageInfo": {
+    "totalResults": 314434,
+    "resultsPerPage": 20
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Z4XcDvjNO_iYsA6Xs0hnyrsmeXE",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "XonFZjuyc6E"
+      },
+      "snippet": {
+        "publishedAt": "2011-07-23T20:21:56Z",
+        "channelId": "UCSrI81Nbylt6Dv-Pc9Pj0ew",
+        "title": "Badfinger - Day After Day (1971 - HQ - Restored)",
+        "description": "Note: Lyrics below From Wiki: \"Day After Day\" is a song recorded by the rock/pop band Badfinger for inclusion on their 1971 album, Straight Up. The song was ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/XonFZjuyc6E/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/XonFZjuyc6E/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/XonFZjuyc6E/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "1hit1ders",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-07-23T20:21:56Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "8MGtDNW90LOMEv6XIcOj57eHUew",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "9k_aj6b2xsA"
+      },
+      "snippet": {
+        "publishedAt": "2008-01-20T14:26:52Z",
+        "channelId": "UC-gaCVfIob32-nyRezgw-OQ",
+        "title": "Badfinger - Baby Blue (Kenny Rogers Show 1972)",
+        "description": "This Bands Original Name was The Iveys.Released On the Beatles Apple Label.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9k_aj6b2xsA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9k_aj6b2xsA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9k_aj6b2xsA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Ron MacInnis",
+        "liveBroadcastContent": "none",
+        "publishTime": "2008-01-20T14:26:52Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "h1R_oZJYdG90Hn_LIe5aeX5fYRo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "c6ebpDPSDT8"
+      },
+      "snippet": {
+        "publishedAt": "2015-08-06T17:35:57Z",
+        "channelId": "UCG4wigbjnwzBIck_8t_IWSg",
+        "title": "Badfinger - The Tragic Story",
+        "description": "Badfinger was a British rock-band known worldwide in the 70s for such hits as “Baby Blue” & “Come and Get It.” They were also the most successful band ever ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Horror Stories",
+        "liveBroadcastContent": "none",
+        "publishTime": "2015-08-06T17:35:57Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "fnbMe0pAclZIIKLhlrx4i9prRdw",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "TkA7xQb6uPk"
+      },
+      "snippet": {
+        "publishedAt": "2011-05-14T12:35:41Z",
+        "channelId": "UCypV_Doj7d_3SWAkaNOsBXQ",
+        "title": "Badfinger - Baby blue",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/TkA7xQb6uPk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/TkA7xQb6uPk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/TkA7xQb6uPk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "thesmallaxe5",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-05-14T12:35:41Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Nn0BCzsSo3DNUWYuWFaXdiESJMA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "9x1MZEDQbtA"
+      },
+      "snippet": {
+        "publishedAt": "2013-02-25T18:52:49Z",
+        "channelId": "UCiVj9JeSNfOyxYicuAwWCEg",
+        "title": "Badfinger - No Matter What - Promotional Film (Music Video) - HQ",
+        "description": "The very rare music video for Badfinger's song No Matter What released on Apple records.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "BeatlesArchivesHQ",
+        "liveBroadcastContent": "none",
+        "publishTime": "2013-02-25T18:52:49Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "kEWConK8HnN71K-a2pw-y91Lq38",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "PPco24LS31A"
+      },
+      "snippet": {
+        "publishedAt": "2015-01-03T17:20:01Z",
+        "channelId": "UC83glu9aDNctrRPMIBCAe_w",
+        "title": "Badfinger - Without You - Television 1972",
+        "description": "https://www.facebook.com/groups/2211874004/ https://www.facebook.com/BadfingerThe-Iveys-294346940651268/ http://www.badfingerlibrary.com.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/PPco24LS31A/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/PPco24LS31A/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/PPco24LS31A/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "BadfingerIveys",
+        "liveBroadcastContent": "none",
+        "publishTime": "2015-01-03T17:20:01Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "BH-tK9Vz--shyuNU12EJi9M3_a0",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "ffzfa_PYUmY"
+      },
+      "snippet": {
+        "publishedAt": "2018-07-24T18:33:20Z",
+        "channelId": "UCyJzUJ95hXeBVfO8zOA0GZQ",
+        "title": "No Matter What (Remastered 2010)",
+        "description": "Provided to YouTube by Universal Music Group No Matter What (Remastered 2010) · Badfinger No Dice ℗ 2010 Apple Corps Ltd Released on: 1970-11-09 ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ffzfa_PYUmY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ffzfa_PYUmY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ffzfa_PYUmY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Badfinger - Topic",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-07-24T18:33:20Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "t3y3OlZ4FJQVmBQwg9RhmwCJ7vg",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Xoke1wUwEXY"
+      },
+      "snippet": {
+        "publishedAt": "2007-12-10T06:51:44Z",
+        "channelId": "UCYGRtBX2lXsE_Ez5tYjVmqg",
+        "title": "No Matter What - Badfinger",
+        "description": "LIVE vocals over LP backing track. Beatles signed them to Apple label as The Iveys. Start of Power Pop, as every band plays this pop gem eventually.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Xoke1wUwEXY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Xoke1wUwEXY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Xoke1wUwEXY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "chevy505",
+        "liveBroadcastContent": "none",
+        "publishTime": "2007-12-10T06:51:44Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "G2pSeyyczyijzsgsIxCAhSJbT6U",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Y9Z4JYVKves"
+      },
+      "snippet": {
+        "publishedAt": "2013-12-28T12:39:32Z",
+        "channelId": "UC1b2L1FWBXpGi-NXU0AYqkQ",
+        "title": "Badfinger documentary (Week In Week Out, BBC Wales 1987)",
+        "description": "rare documentary from 1987.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Y9Z4JYVKves/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Y9Z4JYVKves/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Y9Z4JYVKves/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "newhaw .hero",
+        "liveBroadcastContent": "none",
+        "publishTime": "2013-12-28T12:39:32Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "vTcloCC1mqcFqRLO8TeUrpyl8Sc",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "N3TOcw7taBo"
+      },
+      "snippet": {
+        "publishedAt": "2011-08-13T00:29:56Z",
+        "channelId": "UC_3pSk7ShJV-8jsn56TFckQ",
+        "title": "Badfinger - Come and get it (1969)",
+        "description": "Writer: Paul McCartney ○ Releasing date: 5th December 1969 [UK]; 2nd February 1970 [Usa] ○ Format: 7\" single ○ Label: Apple (#20) [UK]; Apple (#1815) ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/N3TOcw7taBo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/N3TOcw7taBo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/N3TOcw7taBo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "ticktock70",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-08-13T00:29:56Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "_zEiD9b8alZTJm14jvlifZ3BojI",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "sNBEJKOWMME"
+      },
+      "snippet": {
+        "publishedAt": "2020-09-02T01:40:31Z",
+        "channelId": "UChUv5CZuAuh08DfHA8klNSA",
+        "title": "The Badfinger Tragedy, Joey Molland talks about Pete Ham&#39;s Death",
+        "description": "Interview Clip #1 The Badfinger Tragedy, Joey Molland talks about Pete Ham's Death Check out Joey's new album..pre-order here ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/sNBEJKOWMME/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/sNBEJKOWMME/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/sNBEJKOWMME/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Rock History Music",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-09-02T01:40:31Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "wGB3lK5xezHT-6M3bkRhKPWm4FQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "dzUqkBAv-T4"
+      },
+      "snippet": {
+        "publishedAt": "2015-01-01T04:58:09Z",
+        "channelId": "UC83glu9aDNctrRPMIBCAe_w",
+        "title": "Badfinger - Day After Day -  Television - 1972",
+        "description": "https://www.facebook.com/groups/2211874004/ https://www.facebook.com/pages/BadfingerThe-Iveys/294346940651268 www.badfingerlibrary.com.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/dzUqkBAv-T4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/dzUqkBAv-T4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/dzUqkBAv-T4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "BadfingerIveys",
+        "liveBroadcastContent": "none",
+        "publishTime": "2015-01-01T04:58:09Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "2swrU5r3xs323dWhiDbcF2rVTmc",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "9rVt7nZTPBA"
+      },
+      "snippet": {
+        "publishedAt": "2013-10-06T14:59:28Z",
+        "channelId": "UCHoFlk7gh2Sw59yQDSJAFxQ",
+        "title": "Badfinger - Baby Blue [Lyrics] [1080p] [HD]",
+        "description": "Music: From The Best Of Badfinger Album (2000) Track #3 Guess I got what I deserved Kept you waiting there too long, my love All that time without a word ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9rVt7nZTPBA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9rVt7nZTPBA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9rVt7nZTPBA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Stoned Tripper",
+        "liveBroadcastContent": "none",
+        "publishTime": "2013-10-06T14:59:28Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "RM6qyd1NYQR3H3eDJC9Og4CKqxo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "33oAuvbRg-c"
+      },
+      "snippet": {
+        "publishedAt": "2017-03-16T12:39:32Z",
+        "channelId": "UCyJzUJ95hXeBVfO8zOA0GZQ",
+        "title": "Baby Blue (Remastered 2010)",
+        "description": "Provided to YouTube by Universal Music Group Baby Blue (Remastered 2010) · Badfinger Straight Up ℗ 2010 Apple Corps Ltd Released on: 1971-12-13 ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/33oAuvbRg-c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/33oAuvbRg-c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/33oAuvbRg-c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Badfinger - Topic",
+        "liveBroadcastContent": "none",
+        "publishTime": "2017-03-16T12:39:32Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "6-XgrlgdAdOBBsTj0JMMs-25dUY",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "qVnFJzggLHo"
+      },
+      "snippet": {
+        "publishedAt": "2014-03-29T22:08:23Z",
+        "channelId": "UCrKYOgcepS54JRLl_ghQ2vw",
+        "title": "Badfinger - Day After Day",
+        "description": "Golden Oldies van 192TV.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/qVnFJzggLHo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/qVnFJzggLHo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/qVnFJzggLHo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "louis * Jukebox *",
+        "liveBroadcastContent": "none",
+        "publishTime": "2014-03-29T22:08:23Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "PLiWUMLzgvldDClx8PW_TaA7NGc",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "jbk7sME4glA"
+      },
+      "snippet": {
+        "publishedAt": "2020-04-20T18:38:34Z",
+        "channelId": "UCEBMHOkGxjqepeFZjAkJ_FQ",
+        "title": "Badfinger - 1972 -  Set of Six",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/jbk7sME4glA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/jbk7sME4glA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/jbk7sME4glA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "G S",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-04-20T18:38:34Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "8DSbfaHOhnqzC69GSBNMFYlpOvU",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "-btv-7GkVk0"
+      },
+      "snippet": {
+        "publishedAt": "2011-07-01T20:46:18Z",
+        "channelId": "UCLzfEVPiBXxmVxX665QHJfA",
+        "title": "Day After Day - Badfinger",
+        "description": "Song: Day After Day Artist: Badfinger Album: Straight Up Genre: Pop Year: 1971.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/-btv-7GkVk0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/-btv-7GkVk0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/-btv-7GkVk0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Peterpib2Music",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-07-01T20:46:18Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "zrsSEnUzi5PXgjLJITXH3ABr6wQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "fXE-u8ILjOU"
+      },
+      "snippet": {
+        "publishedAt": "2007-12-28T18:25:30Z",
+        "channelId": "UC4w6uMC95VUrOgC0jYN5hXw",
+        "title": "Badfinger - Sweet Tuesday Morning",
+        "description": "https://www.facebook.com/groups/2211874004/ https://www.facebook.com/pages/BadfingerThe-Iveys/294346940651268 http://www.twitter.com/Badfinger_Offcl ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/fXE-u8ILjOU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/fXE-u8ILjOU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/fXE-u8ILjOU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "raferdurham",
+        "liveBroadcastContent": "none",
+        "publishTime": "2007-12-28T18:25:30Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "NQIjhE7uWTOAUlUNx5ZuX9kxLPc",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "IjbbtciZiAg"
+      },
+      "snippet": {
+        "publishedAt": "2020-07-24T17:57:22Z",
+        "channelId": "UCYyFEZ-3Hy4pdLFctDtRu3w",
+        "title": "Badfinger - Come And Get It - 2nd version (1970)",
+        "description": "Badfinger were a Welsh rock band formed in Swansea that were active from the 1960s to the 1980s. Often called \"Beatlesque\",[1] their best-known lineup ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/IjbbtciZiAg/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/IjbbtciZiAg/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/IjbbtciZiAg/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Beat-Club",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-07-24T17:57:22Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "GnEc7bjEKXZy-nTVx2RnqpFjcdo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "1ngI3M1N2zY"
+      },
+      "snippet": {
+        "publishedAt": "2016-03-22T00:02:06Z",
+        "channelId": "UC0_UoNQ2rvCoWzf34YrPO-A",
+        "title": "Badfinger - Day After Day",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1ngI3M1N2zY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1ngI3M1N2zY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1ngI3M1N2zY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Heartbreak In Motordrive",
+        "liveBroadcastContent": "none",
+        "publishTime": "2016-03-22T00:02:06Z"
+      }
+    }
+  ]
+}

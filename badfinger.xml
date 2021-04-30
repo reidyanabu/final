@@ -1,0 +1,182 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "asM9RMKHMQkwxJcsOkzlAJ8hK2Q",
+  "nextPageToken": "CAUQAA",
+  "regionCode": "US",
+  "pageInfo": {
+    "totalResults": 316053,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Z4XcDvjNO_iYsA6Xs0hnyrsmeXE",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "XonFZjuyc6E"
+      },
+      "snippet": {
+        "publishedAt": "2011-07-23T20:21:56Z",
+        "channelId": "UCSrI81Nbylt6Dv-Pc9Pj0ew",
+        "title": "Badfinger - Day After Day (1971 - HQ - Restored)",
+        "description": "Note: Lyrics below From Wiki: \"Day After Day\" is a song recorded by the rock/pop band Badfinger for inclusion on their 1971 album, Straight Up. The song was ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/XonFZjuyc6E/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/XonFZjuyc6E/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/XonFZjuyc6E/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "1hit1ders",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-07-23T20:21:56Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "8MGtDNW90LOMEv6XIcOj57eHUew",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "9k_aj6b2xsA"
+      },
+      "snippet": {
+        "publishedAt": "2008-01-20T14:26:52Z",
+        "channelId": "UC-gaCVfIob32-nyRezgw-OQ",
+        "title": "Badfinger - Baby Blue (Kenny Rogers Show 1972)",
+        "description": "This Bands Original Name was The Iveys.Released On the Beatles Apple Label.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9k_aj6b2xsA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9k_aj6b2xsA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9k_aj6b2xsA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Ron MacInnis",
+        "liveBroadcastContent": "none",
+        "publishTime": "2008-01-20T14:26:52Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "h1R_oZJYdG90Hn_LIe5aeX5fYRo",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "c6ebpDPSDT8"
+      },
+      "snippet": {
+        "publishedAt": "2015-08-06T17:35:57Z",
+        "channelId": "UCG4wigbjnwzBIck_8t_IWSg",
+        "title": "Badfinger - The Tragic Story",
+        "description": "Badfinger was a British rock-band known worldwide in the 70s for such hits as “Baby Blue” & “Come and Get It.” They were also the most successful band ever ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Horror Stories",
+        "liveBroadcastContent": "none",
+        "publishTime": "2015-08-06T17:35:57Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "fnbMe0pAclZIIKLhlrx4i9prRdw",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "TkA7xQb6uPk"
+      },
+      "snippet": {
+        "publishedAt": "2011-05-14T12:35:41Z",
+        "channelId": "UCypV_Doj7d_3SWAkaNOsBXQ",
+        "title": "Badfinger - Baby blue",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/TkA7xQb6uPk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/TkA7xQb6uPk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/TkA7xQb6uPk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "thesmallaxe5",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-05-14T12:35:41Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Nn0BCzsSo3DNUWYuWFaXdiESJMA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "9x1MZEDQbtA"
+      },
+      "snippet": {
+        "publishedAt": "2013-02-25T18:52:49Z",
+        "channelId": "UCiVj9JeSNfOyxYicuAwWCEg",
+        "title": "Badfinger - No Matter What - Promotional Film (Music Video) - HQ",
+        "description": "The very rare music video for Badfinger's song No Matter What released on Apple records.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "BeatlesArchivesHQ",
+        "liveBroadcastContent": "none",
+        "publishTime": "2013-02-25T18:52:49Z"
+      }
+    }
+  ]
+}

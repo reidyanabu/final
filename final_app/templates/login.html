@@ -1,0 +1,459 @@
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Login/Registration</title>
+    <link rel="icon" href="/static/images/mk.jpg">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- my css -->
+    <link href="/static/css/styles.css" rel="stylesheet">
+    <script>
+
+    function speak(textToSay) {
+        speechSynthesis.speak(new SpeechSynthesisUtterance(textToSay));
+    }
+
+    $(document).ready( function() {
+
+        $('#registration_div').hide();
+        $('#login_div').show();
+
+        var CHARS_ONLY = /^[A-Za-z]+$/; // used for name validation
+        var ZIP_CODE_REGEX = /^\d{5}$|^\d{5}-\d{4}$/;
+
+        // validate registration values on the client-side
+        $('#register').click(
+            function() {
+
+                var errors = [];
+                // check email 
+                //var email_exists = check_email_exists(document.getElementById('email').value);
+
+                // check email 
+                var email = document.getElementById("email").value;
+                if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))) {
+                    errors.push("Please enter a valid email");
+                } 
+                /*
+                if (email_exists) {
+                    errors.push("Email already exists");
+                }
+*/
+                // check first name
+                var first_name = document.getElementById("first_name").value;
+                if (first_name.length<2) {
+                    errors.push("First name must be at least 2 characters");
+                }
+
+                // check last name
+                var last_name = document.getElementById("last_name").value;
+                if (last_name.length<2) {
+                    errors.push("Last name must be at least 2 characters");
+                }
+                if (!CHARS_ONLY.test(first_name) || !CHARS_ONLY.test(last_name)) {
+                    errors.push("Names should contain characters only");
+                }
+
+                // check city
+                var city = document.getElementById("city").value;
+                if(city.length<2) {
+                    errors.push("Please enter a city of residence");
+                }
+                
+                // check state
+                var state = document.getElementById("state").value;
+                if (state.length<2) {
+                    errors.push("Please select state of residence")
+                }
+
+                // check postal code
+                var zip = document.getElementById("zip").value;
+                if (!ZIP_CODE_REGEX.test(zip)) {
+                    errors.push("Please enter a valid postal code");
+                }
+
+                // check passwords
+                var password = document.getElementById("password").value;
+                var confirm_password = document.getElementById("confirm_password").value;
+                if (password.length<9 || confirm_password.length<9) {
+                    errors.push("Password must be at least 8 characters");
+                }
+                if (password != confirm_password) {
+                    errors.push("Passords must match");
+                }
+
+                if (errors.length>0) {
+            
+                    var ul = document.getElementById("error-ul");
+                    // clear previous errors
+                    clearErrors();
+                    speak("Please correct your entries");
+                    for (var x=0; x<errors.length; x++) {
+
+                        var error = errors[x];
+                        speak(error);
+                        var li = document.createElement("li");
+                        var att = document.createAttribute('class');
+                        att.value = 'list-group-item list-group-item-danger';
+                        li.setAttributeNode(att);
+                        li.appendChild(document.createTextNode(error));
+                        ul.appendChild(li);
+                    }
+                    // we had errors, do not submit
+                    return false;
+                }
+                // no validation errors ..
+                document.forms["register_form"].submit();
+            }
+        );
+
+        // validate login values on the client-side
+        $('#login').click(
+            function() {
+                var errors = []
+                
+                // check email 
+                var login_email = document.getElementById("login_email").value;
+                if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(login_email))) {
+                    errors.push("Please enter a valid email");
+                }
+
+                // check password
+                var login_password = document.getElementById("login_password").value;
+                if (login_password.length<9) {
+                    errors.push("Password must be at least 8 characters");
+                }
+
+                if (errors.length>0) {
+                    
+                    var ul = document.getElementById("error-ul");
+                    // clear previous errors
+                    clearErrors();
+                    speak("Please correct your entries");
+                    for (var x=0; x<errors.length; x++) {
+                        
+                        var error = errors[x];
+                        speak(error);
+                        var li = document.createElement("li");
+                        var att = document.createAttribute('class');
+                        att.value = 'list-group-item list-group-item-danger';
+                        li.setAttributeNode(att);
+                        li.appendChild(document.createTextNode(error));
+                        ul.appendChild(li);
+                    }
+                    // we had errors, do not submit
+                    return false;
+                }
+                // no validation errors ..
+                document.forms["login_form"].submit();
+            }
+        );
+
+        // when registration email field loses focus .. check it
+        $('#email').focusout(
+
+            function() {
+                
+                var errors = []
+                // check email 
+                var email     = document.getElementById("email").value;
+                var email_msg = document.getElementById("email_msg");
+                // clear any previous errors
+                clearErrors();
+
+                if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))) {
+                    speak("Please enter a valid email");
+                    var email_msg_p = document.createElement("p");
+                    var att = document.createAttribute('class');
+                    att.value = 'col-sm-3 list-group-item-danger msgs';
+                    email_msg_p.setAttributeNode(att);
+                    email_msg_p.appendChild(document.createTextNode("Please enter a valid email"));
+                    email_msg.appendChild(email_msg_p);
+                    
+                } else {
+
+                    // email format was valid
+                    $.ajax({
+                    url: '/ajax/validate_email',
+                    data: {
+                        'email': email
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.email_exists) {
+                            speak("Email already exists, choose another");
+                            var email_msg_p = document.createElement("p");
+                            var att = document.createAttribute('class');
+                            att.value = 'col-sm-3 list-group-item-danger msgs';
+                            email_msg_p.setAttributeNode(att);
+                            email_msg_p.appendChild(document.createTextNode("Email already exists, choose another"));
+                            email_msg.appendChild(email_msg_p);
+                        } else {
+                            speak("Email is good! Not in system yet.");
+                            var email_msg_p = document.createElement("p");
+                            var att = document.createAttribute('class');
+                            att.value = "col-sm-3 list-group-item-success msgs";
+                            email_msg_p.setAttributeNode(att);
+                            email_msg_p.appendChild(document.createTextNode("Email is good! Not in system yet."));
+                            email_msg.appendChild(email_msg_p);
+                        }
+                    } // end successful ajax call
+                    }); // end ajax call
+                } // end else valid email
+            } // function end
+        ); // end lose focus
+
+        // login email lose focus check .. 
+        $('#login_email').focusout(
+            function() {
+                var errors = []
+                // check login email 
+                var email     = document.getElementById("login_email").value;
+                var email_msg = document.getElementById("login_email_msg");
+                // clear any previous errors 
+                clearErrors();
+
+                if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))) {
+                    speak("Please enter a valid email");
+                    var email_msg_p = document.createElement("p");
+                    var att = document.createAttribute('class');
+                    att.value = 'col-sm-3 list-group-item-danger msgs';
+                    email_msg_p.setAttributeNode(att);
+                    email_msg_p.appendChild(document.createTextNode("Please enter a valid email"));
+                    email_msg.appendChild(email_msg_p);
+                } else {
+                    // email format was valid
+                    $.ajax({
+                    url: '/ajax/validate_email',
+                    data: {
+                        'email': document.getElementById('login_email').value
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if (!data.email_exists) {
+                            speak("Email entered does not exist in system");
+                            var email_msg_p = document.createElement("p");
+                            var att = document.createAttribute('class');
+                            att.value = "col-sm-3 list-group-item-danger msgs";
+                            email_msg_p.setAttributeNode(att);
+                            email_msg_p.appendChild(document.createTextNode("Email entered does not exist in system"));
+                            email_msg.appendChild(email_msg_p);
+                        }
+                    } // end successful ajax call
+                    }); // end ajax call
+                } // end else valid email
+            }
+        ); // end login email lose focus check
+
+        function clearErrors() {
+
+            // clear top-level errors
+            var ul = document.getElementById("error-ul");
+            // clear previous errors
+            while (ul.firstChild) {
+                ul.removeChild(ul.lastChild);
+            }
+
+            // clear existing email reg errors
+            var email_msg = document.getElementById("email_msg");
+            // clear any previous errors
+            while (email_msg.firstChild) {
+                email_msg.removeChild(email_msg.lastChild);
+            }
+
+            // clear existing login errors
+            var email_msg = document.getElementById("login_email_msg");
+            // clear any previous errors
+            while (email_msg.firstChild) {
+                email_msg.removeChild(email_msg.lastChild);
+            }
+        }
+
+        $('#switch_to_login').click(
+            function() {
+                clearErrors();
+                $('#registration_div').hide();
+                $('#login_div').show();
+                //$('#registration_div').css('display', 'none');
+            }
+        );
+
+        $('#switch_to_reg').click(
+            function() {
+                clearErrors();
+                $('#registration_div').show();
+                $('#login_div').hide();
+                //$('#registration_div').css('display', 'none');
+            }
+        );
+    }); // end main funciton and ready
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div class="row">
+            <ul class="list-group" name='error-ul' id='error-ul'> 
+            {% if messages %}  
+                    {% for message in messages %}    
+                        <li {% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-danger"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+            {% endif %}
+            </ul>
+            
+            <div class="col form-div" id="registration_div" name="registration_div">
+                <!-- Registration Form -->
+                <div>
+                <h1 class="form-row-title form-group">Registration</h2>
+                </div>
+                <form method='post' name="register_form" id="register_form" action="/register_user" class="form-horizontal">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="first_name" class="control-label col-sm-2">First Name: </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="first_name" name="first_name" value="{{ first_name }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="last_name" class="control-label col-sm-2">Last Name: </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-horizontal" id="last_name" name="last_name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="control-label col-sm-2">City: </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-horizontal" id="city" name="city">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="state" class="col-sm-2 control-label">State: </label>
+                    <div class="col-sm-3">
+                        <select class="form-control form-horizontal" id="state" name="state">
+                            <option value="">Select State</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="IA">Iowa</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MD">Maryland</option>
+                            <option value="ME">Maine</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MT">Montana</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NY">New York</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VA">Virginia</option>
+                            <option value="VT">Vermont</option>
+                            <option value="WA">Washington</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="zip" class="control-label col-sm-2">Postal Code: </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-horizontal" id="zip" name="zip">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="network" class="control-label col-sm-2">Email: </label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" id="email" name="email" autocomplete="email">
+                    </div>
+                    <div id="email_msg" name="email_msg"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label col-sm-2">Password: </label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password" class="control-label col-sm-2">Confirm PW: </label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                    </div>
+                </div>
+                <div align="center">
+                    <label id="switch_to_login" name="switch_to_login" class="btn btn-info text-left" >Switch to Login</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" id='register' name='register' class="btn btn-primary text-right" value="Register"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                </form>
+                
+            </div>
+
+            <div class="col" id="login_div">
+                <!-- Login Form -->
+                <h1 class="form-row-title">Login</h2>
+                <form method='post' action="/process_login" id="login_form" name="login_form" class="form-horizontal">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="login_email" class="control-label col-sm-2">Email: </label>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" id="login_email" name="login_email" autocomplete="email">
+                    </div>
+                    <div id="login_email_msg" name="login_email_msg"></div>
+                </div>
+                <div class="form-group">
+                    <label for="login_password" class="control-label col-sm-2">Password: </label>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control" id="login_password" name="login_password">
+                    </div>
+                </div>
+                <div align="center">
+                    <label id="switch_to_reg" name="switch_to_reg" class="btn btn-info" >Switch to Registration</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" id="login" name="login" class="btn btn-primary" value="Login"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>User Logged In</title>
+    <link rel="icon" href="/static/images/mk.jpg">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="canonical" href="https://icons.getbootstrap.com/icons/heart-fill/">
+
+    <!-- my css -->
+    <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<script>
+
+    var YOUTUBE_API_URL = 'https://youtube.googleapis.com/youtube/v3/search';
+    var DUMMY_YOUTUBE_ENDPOINT = "http://localhost:8084/youtube";
+    
+    // sr
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+    var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+    var recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    var speech = new SpeechSynthesisUtterance();
+    
+    function speak(textToSay) {
+        speech.text = textToSay;
+        speechSynthesis.speak(speech);
+    }
+
+    const EMBEDDED_VIDEO_PREPEND = "https://www.youtube.com/embed/";
+    const DEFAULT_VIDEO = "9x1MZEDQbtA";
+
+    
+    function load_video(videoId) {
+        
+        var iframe_v = document.getElementById("player");
+        // load the video into iframe
+        iframe_v.src = EMBEDDED_VIDEO_PREPEND + videoId + "?autoplay=1";
+        var video_title = document.getElementById("video-title");
+        var video_desc_p = document.getElementById("current-video-desc");
+        var video_img = document.getElementById("current-video-img");
+        var title = '';
+        if (videoId == DEFAULT_VIDEO) {
+            
+            // set title, desc, and image
+            title = 'Badfinger - No Matter What';
+            
+            video_title.innerHTML = title;
+            video_desc_p.innerHTML = 'The very rare music video for Badfinger\'s song No Matter What released on Apple records.';
+            video_img.src = 'https://i.ytimg.com/vi/PPco24LS31A/default.jpg';
+        } else {
+            // retrieve the video from stored results
+            var item = videos.get(videoId);
+            title = item.snippet.title;
+            // set title, desc, and image
+            video_title.innerHTML = item.snippet.title;
+            video_desc_p.innerHTML = item.snippet.description;
+            video_img.src = item.snippet.thumbnails.default.url;
+        }
+        speak(title);
+        // search to see if: 1. we have rated this video,  2. we have favorited this video
+        get_video_pref_info(videoId);
+    }
+
+    function get_video_pref_info(video_id) {
+        
+        $.ajax({
+            url: '/youtube/video_pref_info',
+            method: 'GET',
+            data: {
+                'video_id' : video_id,
+            },
+            dataType: 'json',
+            success: function (r) {
+                // set rating on elements
+                var rating_result = parseInt(r.rating);
+                var rating = document.rating_form.rating;
+                
+                rating[5-rating_result].checked = true;
+                
+                var rating_form_video_id = document.rating_form.video_id;
+                rating_form_video_id.value = video_id;
+
+                // un/set favorite
+                //console.log("r.is_favorite ==== " + r.is_favorite);
+
+                //set_favorite(r.is_favorite); NOT WORKING
+            }
+        });
+    }
+
+    function set_favorite(is_favorite_in) {
+        //console.log("is_favorite == " + is_favorite);
+        if (is_favorite_in) {
+            // make favorite
+            $('#fave-heart').css({ fill: "red" });
+            $('#fav_btn').removeClass('btn-secondary').addClass('btn-link');
+            is_favorite = true;
+            call_to_make = 'add';
+        } else {
+            // un-favorite
+            $('#fav_btn').removeClass('btn-link').addClass('btn-secondary');
+            $('#fave-heart').css({ fill: "white" });
+            is_favorite = false;
+            call_to_make = 'remove';
+        }
+    }
+
+    // we store the current results
+    var videos = new Map();
+    
+    function search_youtube(search_text) {
+        
+        document.getElementById("youtube_search_txt").value = search_text;
+        $.ajax({
+            url: YOUTUBE_API_URL,
+            //url: DUMMY_YOUTUBE_ENDPOINT,
+            method: 'GET',
+            data: {
+                'key' : 'AIzaSyC3i9nCRcpafNUGCq2uHU9HZRwGjkDblYw',
+                'videoEmbeddable' : 'true',
+                'part' : 'snippet', 
+                'q' : search_text,
+                'type' : 'video',
+                'max_results' : '20',
+                'type' : 'video',
+            },
+            dataType: 'json',
+            success: function (r) {
+                
+                var min_search_button = document.getElementById('button');
+                button.style.display='block';
+                button.innerHTML = "Hide Results";
+                
+                var master_p = document.getElementById("video-list");
+                // remove previous images
+                while (master_p.firstChild) {
+                    master_p.removeChild(master_p.lastChild);
+                }
+
+                var items = r.items;
+                var item = null;
+                
+                for (var i=0; i<items.length; i++) {
+
+                    item = r.items[i];
+                    
+                    videos.set(item.id.videoId, item);
+
+                    var button_item = document.createElement("button");
+                    var button_class = document.createAttribute('class');
+                    var button_type = document.createAttribute('type');
+                    button_class.value = 'list-group-item list-group-item-action';
+                    button_type.value = 'button';
+                    button_item.setAttributeNode(button_class);
+                    button_item.setAttributeNode(button_type);
+                    button_item.setAttribute("onclick",  "load_video('" + item.id.videoId + "');" );
+                    button_item.innerHTML = "<img src=" + item.snippet.thumbnails.default.url + " width='50' height='40'> " + item.snippet.title;
+                    // create the button
+                    master_p.appendChild(button_item);
+                }
+
+            } // end successful ajax call
+        }); // end ajax call
+    } //end search_youtube function
+
+    $(document).ready( function() {
+
+        load_video('9x1MZEDQbtA');
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $('#youtube_search_txt').keypress(
+            function(event) {
+                // if user presses enter, search!
+                var keycode = (event.keycode?event.keycode:event.which);
+                if (keycode == 13) {
+
+                    var txt = document.getElementById('youtube_search_txt').value;
+                    if (txt != '') {
+                        speak("Results for " + txt);
+                        search_youtube(txt);
+                    }
+                }
+            }
+        );
+
+        $("#button").hide();
+
+        $("#button").click(function(){
+            if($("#button").html() == "Hide Results"){
+                $("#button").html("Show Results");
+            } else {
+                $("#button").html("Hide Results");
+            }
+            $("#video-list").slideToggle();
+        });
+
+        // rating ajax submission call
+        $("input[name='rating']").click(function(){
+            
+            var rating = $("input[name='rating']:checked", "#rating_form").val();
+            var video_id = $("#rating_form input[name='video_id']").val();
+            //console.log("AJAX .. rating = " + rating + ", video_id = " + video_id);
+            $.ajax({
+            url: '/youtube/rating/update',
+            method: 'GET',
+            data: {
+                'video_id' : video_id,
+                'rating' : rating
+            },
+                dataType: 'json',
+                success: function (r) {
+                    //console.log('rating: ' + r.rating)
+                    var rating = document.rating_form.rating;
+                    
+                    rating[5-r.rating].checked = true;
+                    // change the vide id on form to change rating
+                    var rating_form_video_id = document.rating_form.video_id;
+                    video_id.value = video_id;
+                }
+            });
+        });
+
+        var is_favorite = false;
+        
+        $("#fav_btn").click(function(){
+
+            var call_to_make = '';
+            if (is_favorite) {
+                call_to_make = 'remove';
+            } else {
+                call_to_make = 'add';
+            }
+            console.log("making call = " + call_to_make);
+            var video_id = $("#rating_form input[name='video_id']").val();
+            
+            $.ajax({
+            url: '/youtube/favorite/' + call_to_make,
+            method: 'GET',
+            data: {
+                'video_id' : video_id
+            },
+                dataType: 'json',
+                success: function (r) {
+                    //console.log("r.is_favorite = " + r.is_favorite);
+                    
+                    if (r.is_favorite) {
+                        // make favorite
+                        $('#fave-heart').css({ fill: "red" });
+                        $('#fav_btn').removeClass('btn-secondary').addClass('btn-link');
+                        is_favorite = true;
+                        call_to_make = 'add';
+                    } else {
+                        
+                        // un-favorite
+                        $('#fav_btn').removeClass('btn-link').addClass('btn-secondary');
+                        $('#fave-heart').css({ fill: "white" });
+                        is_favorite = false;
+                        call_to_make = 'remove';
+                    }
+
+                }
+            }); // end AJAX call
+
+        }); // end fav_btn click
+        
+    });
+</script>
+    <body>
+        <div id="container">
+        <!-- Header -->
+        <div class="row">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Welcome {{ request.session.user_first_name }}!</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/youtube">Youtube</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/weather">Weather</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="btn btn-primary" href="/logout">Log Out</a>
+            </nav>
+        </div>
+            <div class="row">
+                <div class="col">
+                        <p class=""><h4>What would you like to see?</h4></p>
+                        <p><input type='text' id="youtube_search_txt" name="youtube_search_txt" class="form-control border border-info"/></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="video" name="video" class="rounded border border-secondary">
+                        <iframe name="player" id="player" src="https://www.youtube.com/embed/9x1MZEDQbtA?autoplay=1" width="430" height="350" allow="encrypted-media"></iframe>
+                    </div>
+                </div>
+                <div class="col rounded border border-secondary" id="video-desc-div">
+                    <p id="current-video-title"><h3 id="video-title" class='text-primary text-dark'>Badfinger - No Matter What</h3></p>
+                    <p id="current-video-img-p">
+                        <img id="current-video-img" src="https://i.ytimg.com/vi/PPco24LS31A/default.jpg" height="90px" width="120px">
+                    </p>
+                    <p id="current-video-desc">The very rare music video for Badfinger's song No Matter What released on Apple records.</p>
+                    <form name="rating_form" id="rating_form" method="get" action="/youtube/rating/update">
+                    <div class="col"><label for="rating">My rating: </lavbel>
+                        <div class="rating"><input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label><input type="radio" name="rating" value="0" id="0">
+                        </div>
+                    </div>
+
+
+                    <button type="button" class="btn btn-secondary" id="fav_btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart-fill" viewBox="0 0 16 16" id="fave-heart" data-toggle="tooltip" data-placement="top" title="Make Favorite/Un-Favorite">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+                        </svg>
+                    </button>
+
+
+                    <input type="hidden" name="video_id" id="video_id" value="9x1MZEDQbtA"/>
+                    </form>
+                </div>
+            </div>
+            
+            <div id="widnow" class="row w-100">
+                <div class="col w-100">
+                    <h3><button id="button" class="col btn btn-info">Search Results</button></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col list-group" id="video-list" role="tablist" class="row" show="false"></div>
+            </div>
+            
+
+        </div>
+    </body>
+</html>

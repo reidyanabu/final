@@ -1,0 +1,217 @@
+{
+    "kind": "youtube#searchListResponse",
+    "etag": "ztuDXf4R3pEreGKwoSxw5ljiZ6A",
+    "nextPageToken": "CBQQAA",
+    "regionCode": "US",
+    "pageInfo": {
+      "totalResults": 314434,
+      "resultsPerPage": 20
+    },
+    "items": [
+        {
+            "kind": "youtube#searchResult",
+            "etag": "NQIjhE7uWTOAUlUNx5ZuX9kxLPc",
+            "id": {
+              "kind": "youtube#video",
+              "videoId": "IjbbtciZiAg"
+            },
+            "snippet": {
+              "publishedAt": "2020-07-24T17:57:22Z",
+              "channelId": "UCYyFEZ-3Hy4pdLFctDtRu3w",
+              "title": "Badfinger - Come And Get It - 2nd version (1970)",
+              "description": "Badfinger were a Welsh rock band formed in Swansea that were active from the 1960s to the 1980s. Often called \"Beatlesque\",[1] their best-known lineup ...",
+              "thumbnails": {
+                "default": {
+                  "url": "https://i.ytimg.com/vi/IjbbtciZiAg/default.jpg",
+                  "width": 120,
+                  "height": 90
+                },
+                "medium": {
+                  "url": "https://i.ytimg.com/vi/IjbbtciZiAg/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+                },
+                "high": {
+                  "url": "https://i.ytimg.com/vi/IjbbtciZiAg/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+                }
+              },
+              "channelTitle": "Beat-Club",
+              "liveBroadcastContent": "none",
+              "publishTime": "2020-07-24T17:57:22Z"
+            }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "h1R_oZJYdG90Hn_LIe5aeX5fYRo",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "c6ebpDPSDT8"
+        },
+        "snippet": {
+          "publishedAt": "2015-08-06T17:35:57Z",
+          "channelId": "UCG4wigbjnwzBIck_8t_IWSg",
+          "title": "Badfinger - The Tragic Story",
+          "description": "Badfinger was a British rock-band known worldwide in the 70s for such hits as “Baby Blue” & “Come and Get It.” They were also the most successful band ever ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/c6ebpDPSDT8/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "Horror Stories",
+          "liveBroadcastContent": "none",
+          "publishTime": "2015-08-06T17:35:57Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "Nn0BCzsSo3DNUWYuWFaXdiESJMA",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "9x1MZEDQbtA"
+        },
+        "snippet": {
+          "publishedAt": "2013-02-25T18:52:49Z",
+          "channelId": "UCiVj9JeSNfOyxYicuAwWCEg",
+          "title": "Badfinger - No Matter What - Promotional Film (Music Video) - HQ",
+          "description": "The very rare music video for Badfinger's song No Matter What released on Apple records.",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/9x1MZEDQbtA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "BeatlesArchivesHQ",
+          "liveBroadcastContent": "none",
+          "publishTime": "2013-02-25T18:52:49Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "_zEiD9b8alZTJm14jvlifZ3BojI",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "sNBEJKOWMME"
+        },
+        "snippet": {
+          "publishedAt": "2020-09-02T01:40:31Z",
+          "channelId": "UChUv5CZuAuh08DfHA8klNSA",
+          "title": "The Badfinger Tragedy, Joey Molland talks about Pete Ham&#39;s Death",
+          "description": "Interview Clip #1 The Badfinger Tragedy, Joey Molland talks about Pete Ham's Death Check out Joey's new album..pre-order here ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/sNBEJKOWMME/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/sNBEJKOWMME/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/sNBEJKOWMME/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "Rock History Music",
+          "liveBroadcastContent": "none",
+          "publishTime": "2020-09-02T01:40:31Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "PLiWUMLzgvldDClx8PW_TaA7NGc",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "jbk7sME4glA"
+        },
+        "snippet": {
+          "publishedAt": "2020-04-20T18:38:34Z",
+          "channelId": "UCEBMHOkGxjqepeFZjAkJ_FQ",
+          "title": "Badfinger - 1972 -  Set of Six",
+          "description": "",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/jbk7sME4glA/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/jbk7sME4glA/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/jbk7sME4glA/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "G S",
+          "liveBroadcastContent": "none",
+          "publishTime": "2020-04-20T18:38:34Z"
+        }
+      },
+      {
+        "kind": "youtube#searchResult",
+        "etag": "zrsSEnUzi5PXgjLJITXH3ABr6wQ",
+        "id": {
+          "kind": "youtube#video",
+          "videoId": "fXE-u8ILjOU"
+        },
+        "snippet": {
+          "publishedAt": "2007-12-28T18:25:30Z",
+          "channelId": "UC4w6uMC95VUrOgC0jYN5hXw",
+          "title": "Badfinger - Sweet Tuesday Morning",
+          "description": "https://www.facebook.com/groups/2211874004/ https://www.facebook.com/pages/BadfingerThe-Iveys/294346940651268 http://www.twitter.com/Badfinger_Offcl ...",
+          "thumbnails": {
+            "default": {
+              "url": "https://i.ytimg.com/vi/fXE-u8ILjOU/default.jpg",
+              "width": 120,
+              "height": 90
+            },
+            "medium": {
+              "url": "https://i.ytimg.com/vi/fXE-u8ILjOU/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+            },
+            "high": {
+              "url": "https://i.ytimg.com/vi/fXE-u8ILjOU/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+            }
+          },
+          "channelTitle": "raferdurham",
+          "liveBroadcastContent": "none",
+          "publishTime": "2007-12-28T18:25:30Z"
+        }
+      }
+    ]
+  }
+  
